@@ -51,7 +51,8 @@ class Directory extends React.Component{
                     <MenuItem title = {section.title} 
                               image = {section.imageUrl}
                               key = {section.id}
-                              size = {section.size} />
+                              size = {section.size}
+                              linkUrl = {section.linkUrl} />
                 ))}
             </div>
         )
