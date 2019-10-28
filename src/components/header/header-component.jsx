@@ -24,12 +24,16 @@ const Header = (props) =>(
             <CartIcon />    
             
         </div>
-        <CartDropdown />
+       {
+           !props.hidden ? <CartDropdown />
+                        : null
+       }
     </div>
 )
 
 const mapStateToProps = state => ({
-    isAuth: state.user.currentUser !== null
+    isAuth: state.user.currentUser !== null,
+    hidden: state.cart.hidden
 })
 
 export default connect(mapStateToProps)(Header);
