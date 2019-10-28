@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './header.styles.scss';
 import { ReactComponent as Logo } from '../../Assets/crown.svg';
 import {auth} from '../../firebase/firebase.util';
+import { connect } from 'react-redux';
 
 // isAuth is equvalent to currentUser in React course
 
@@ -23,4 +24,8 @@ const Header = (props) =>(
     </div>
 )
 
-export default Header;
+const mapStateToProps = state => ({
+    isAuth: state.user.currentUser !== null
+})
+
+export default connect(mapStateToProps)(Header);
