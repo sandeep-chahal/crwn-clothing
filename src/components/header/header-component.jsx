@@ -4,6 +4,8 @@ import './header.styles.scss';
 import { ReactComponent as Logo } from '../../Assets/crown.svg';
 import {auth} from '../../firebase/firebase.util';
 import { connect } from 'react-redux';
+import CartIcon from '../cart-icon/cart-icon.component';
+import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
 // isAuth is equvalent to currentUser in React course
 
@@ -19,8 +21,10 @@ const Header = (props) =>(
             props.isAuth ? <div className="option" onClick = {() => auth.signOut()}>Sign Out</div> 
                          : <Link to="/signin" className="option">Sign In</Link>
             }
+            <CartIcon />    
             
         </div>
+        <CartDropdown />
     </div>
 )
 
