@@ -7,6 +7,11 @@ import { connect } from 'react-redux';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
+import { selectUser} from '../../redux/user/user.selectors';
+import { selectHidden } from '../../redux/cart/cart.selectors';
+import { createStructuredSelector } from 'reselect';
+
+
 // isAuth is equvalent to currentUser in React course
 
 const Header = (props) =>(
@@ -31,9 +36,9 @@ const Header = (props) =>(
     </div>
 )
 
-const mapStateToProps = state => ({
-    isAuth: state.user.currentUser !== null,
-    hidden: state.cart.hidden
+const mapStateToProps = createStructuredSelector({
+    isAuth: selectUser,
+    hidden: selectHidden
 })
 
 export default connect(mapStateToProps)(Header);
