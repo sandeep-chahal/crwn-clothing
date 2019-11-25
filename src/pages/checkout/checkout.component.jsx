@@ -6,6 +6,8 @@ import CheckoutItem from '../../components/checkout-item/checkout-item.component
 
 import { selectCartItems, selectCartTotal } from '../../redux/cart/cart.selectors';
 
+import StripeChecoutButton from '../../components/stripe-button/stripe-button.component';
+
 import './checkout.styles.scss'
 
 
@@ -33,11 +35,15 @@ const checkout = props => (
             props.cartItems.map(item => <CheckoutItem key={item.id} item={item}/>)
         }
 
-        <div className="total">
-            <span>TOTAL: ${props.total}</span>
+        <div className="total">TOTAL: ${props.total}</div>
+        <StripeChecoutButton price={props.total}/>
+
+        <div className="dummy-credit">
+            Use this credit card: - 
+            <div>Credit Card - 4242 4242 4242 4242</div>
+            <div>Exp - 01/20</div>
+            <div>CVV - 123</div>
         </div>
-
-
     </div>
 )
 
